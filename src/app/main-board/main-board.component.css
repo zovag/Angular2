@@ -1,0 +1,7 @@
+.app-content {
+   margin: 50px auto; 
+   max-width: 100%;
+}
+.dashboard-card {
+  max-width: 280px;
+}
