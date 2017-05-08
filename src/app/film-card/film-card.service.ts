@@ -9,7 +9,7 @@ export class FilmCardService {
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.Search || {};
+    return body.Search || [];
   }
 
   getFilms (filmName: string) {
