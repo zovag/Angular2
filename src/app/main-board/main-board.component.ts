@@ -13,8 +13,6 @@ export class MainBoardComponent implements OnInit {
   links = [
         { path: '/home', icon: 'home', label: 'Главная'},
         { path: '/films', icon: 'event_name', label: 'Фильмы'}
-        // { path: '/list', icon: 'list', label: 'Ссылки'},
-        // { path: '/statistics', icon: 'settings', label: 'Статистика'}
   ];
 
   ngOnInit() {

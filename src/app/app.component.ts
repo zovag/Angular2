@@ -10,7 +10,6 @@ export class AppComponent {
   links = [
         { path: '/dashboard', icon: 'home', label: 'Главная'},
         { path: '/films', icon: 'event_name', label: 'Фильмы'},
-        // { path: '/statistics', icon: 'settings', label: 'Статистика'}
   ];
 
 }
