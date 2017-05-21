@@ -1,3 +1,4 @@
+
 'use strict';
 (function() {
 
@@ -26,11 +27,11 @@
             var item;
             for (let i = 0; i < data.Search.length; i++) {
                 item = data.Search[i];
-                this.DOMElements.galleryContainer.innerHTML += `<div class="filmCard col-sm-4" >
+                this.DOMElements.galleryContainer.innerHTML += `<div class="card col-sm-4" >
                                                                     <div class="thumbnail">
-                                                                        <img  src="${item.Poster}" height="700px" alt="${item.Title}">
+                                                                        <img  src="${item.Poster}" alt="${item.Title}">
                                                                         <div class="caption">
-                                                                            <h4>${item.Title}</h4>
+                                                                            <h4><a href="#">${item.Title}</a></h4>
                                                                             <h5>Year: ${item.Year}</h5>
                                                                             <h5>${this.description}</h5>
                                                                         </div>
@@ -52,9 +53,3 @@
     window.app.Gallery = Gallery;
     
 }());
-            // else {
-            //     let h1 = document.createElement("h1");
-            //     h1.innerText="По запросу ничего не найдено"; 
-            //     fragment.appendChild(h1);
-            // }
-            

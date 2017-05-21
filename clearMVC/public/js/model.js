@@ -3,12 +3,13 @@
     
     let model = function() {
 
-        let eventHolder = $({});
-        let filmRespEventName = "filmResponse";
-        let filmsUrl = "http://www.omdbapi.com/?page=1&s=";
+        let eventHolder = $({}),
+            filmRespEventName = "filmResponse",
+            filmsUrl = "http://www.omdbapi.com/?page=1&s=",
+            apiKey = "&apikey=520bbe17";
 
         function getFilms(filmName) {
-            $.get( filmsUrl + filmName, function(films) {
+            $.get( filmsUrl + filmName + apiKey, function(films) {
                 if(!films){return};
                 eventHolder.trigger(filmRespEventName , [films]);
             });
