@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.mat-toolbar .mat-toolbar-row {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
