@@ -3,26 +3,23 @@
     
     let model = function() {
 
-        let eventHolder = $({}),
-            filmRespEventName = "filmResponse",
-            filmsUrl = "http://www.omdbapi.com/?page=1&s=",
-            apiKey = "&apikey=520bbe17";
-
-        function getFilms(filmName) {
-            $.get( filmsUrl + filmName + apiKey, function(films) {
-                if(!films){return};
-                eventHolder.trigger(filmRespEventName , [films]);
-            });
+        let filmURL = "http://www.omdbapi.com/?apikey=520bbe17&page=1&s=",
+            filmName = "Matrix";
+        
+        function getFilms() {
+            return $.get( filmURL + filmName, function( films ) {});            
+        }
+               
+        function updateFilms(searchFilm) {
+            filmName = searchFilm;
+            return getFilms(searchFilm);            
         }
         
         return {
             getFilms : getFilms,
-            eventHolder : eventHolder,
-            filmRespEventName : filmRespEventName
+            updateFilms: updateFilms
         }
     }
-    
     window.app = window.app || {};
-    window.app.model = model();
-  
+    window.app.model = model();    
 }())

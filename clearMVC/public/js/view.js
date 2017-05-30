@@ -1,55 +1,53 @@
-
 'use strict';
 (function() {
-
-    function Gallery (items) {        
-        this.DOMElements = {
-            galleryContainer : document.querySelector("#galleryContainer"),
-            inputFilmName  : document.querySelector("#inputFilmName")
-         };
-
-        this.eventHolder = $({});
-        this.filmReqEventName = "filmReqwest";
-        this.description = "<p>Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the galaxy from the Empire's world-destroying battle-station.</p>";
-        this.init();
-    }
     
-    Gallery.prototype = {
+    let view = function () {        
         
-        init : function() {
-           this.initListeners();
-        },
+        let DOMElements = {
+                result: document.querySelector(".result"),
+                pageInput: document.querySelector(".page-input")
+            },
+            eventHolder = $({}),
+            searchEventName = "search";
+    
+        function initListeners() {
+            DOMElements.pageInput.addEventListener("keyup", (event) => {
+                let newFilm = event.target.closest(".search-film");
+                if(newFilm && event.keyCode === 13){
+                    eventHolder.trigger(searchEventName, [searchElement(newFilm)]);
+                }
+            })
+        }
+
+        function searchElement(elem) {
+            let film = elem.getElementByTagName("input")[0];
+            return film.value;
+        }
+
+        function buildFilmList(films) {
+            let list = films.Search.reduce(function(finslList, item) {
+                return finalList + `<div class="col-xs-6">\
+                                        <img src="${item.Poster}">\
+                                        <div class="info-wrapper">\
+                                            <div class="text-muted">${item.Title}</div>\
+                                            <div class="text-muted">${item.Year}</div>\
+                                        </div>
+                                    </div>`;
+            }, " ");
+            DOMElements.result.innerHTML = list;
+        }
         
-        buildGallery : function(data) {
-            console.log(data);
-            this.DOMElements.inputFilmName.value = '';
-            this.DOMElements.galleryContainer.innerHTML = '';
-            var item;
-            for (let i = 0; i < data.Search.length; i++) {
-                item = data.Search[i];
-                this.DOMElements.galleryContainer.innerHTML += `<div class="card col-sm-4" >
-                                                                    <div class="thumbnail">
-                                                                        <img  src="${item.Poster}" alt="${item.Title}">
-                                                                        <div class="caption">
-                                                                            <h4><a href="#">${item.Title}</a></h4>
-                                                                            <h5>Year: ${item.Year}</h5>
-                                                                            <h5>${this.description}</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>`;
+        return {
+            eventHolder: eventHolder,
+            searchEventName: searchEventName,
+            init: function(films) {
+                buildFilmList(films);
+                initListeners();
             }
-            
-        },
+        }
+    };
 
-        initListeners : function() {
-           this.DOMElements.inputFilmName.addEventListener("change", () => {
-               if (!this.DOMElements.inputFilmName.value) {return};
-                this.eventHolder.trigger(this.filmReqEventName , [this.DOMElements.inputFilmName.value]);
-            });
-        } 
-    }
-    
     window.app = window.app || {};
-    window.app.Gallery = Gallery;
+    window.app.view = view();
     
 }());
