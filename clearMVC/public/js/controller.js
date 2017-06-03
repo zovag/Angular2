@@ -1,30 +1,39 @@
 (function(){
     
-	let model = app.model,
-        view = app.view;
-        
-    function bindSearch() {
-        view.eventHolder.on( view.searchEventName, (event, item) => {
-            model.updateFilms(item).then((newFilms) => {
-                initGallery(newFilms);
-                bindEvents();
+	var model = window.app.model;
+    var Gallery = window.app.Gallery;
+    var gallery = null;
+    var request = "Home";
+            
+    /*function bindSave() {
+        gallery.saveDefer.then((item) => {
+            model.saveData(item);    
+        });
+    }*/
+    
+    function bindUpdate() {
+        gallery.eventHolder.on( gallery.updateEventName, (onButtonClicked, request) => {
+            model.getFilms(request).then(filmList => {
+                initGallery(filmList);
             });
         });
     }
     
-    function bindEvents(){ 
-        bindSearch();
+    function bindEvents(){
+        //bindSave();  
+        bindUpdate();
     }
     
-    function initGallery(films){
-        view.init(films);   
+    function initGallery(filmList){
+        gallery = new Gallery(filmList);   
     }
     
-    function init() {   
-        model.getFilms().then((films) => {
-            initGallery(films);
+    function init() {
+        model.getFilms(request).then((filmList) => {
+            initGallery(filmList);
             bindEvents();
         });    
     }
-    init(); 
-}());
+    init();
+    
+}())
