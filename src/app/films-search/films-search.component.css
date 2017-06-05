@@ -1,0 +1,9 @@
+.search-form {
+    display: inline-block;
+    width: 45%;
+    margin-right: 5%;
+}
+.select-view {
+    display: inline-block;
+    float: right;
+}

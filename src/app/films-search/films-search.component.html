@@ -1,0 +1,13 @@
+<form class="search-form">
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()">
+  </md-input-container>
+</form>
+
+<md-select class="select-view" placeholder="Select View">
+  <md-option *ngFor="let view of views" [value]="view.value">
+    {{ view.viewValue }}
+  </md-option>
+</md-select>
+
+

@@ -1,0 +1,17 @@
+<form class="example-form">
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()">
+  </md-input-container>
+</form>
+
+<films-search></films-search>
+
+<md-grid-list cols="2" rowHeight="900px">
+	<div *ngIf="filmList.length === 0"><h2> Фильмы не найдены </h2></div>	
+  <md-grid-tile *ngFor="let film of filmList">
+		<film-card [filmId]="film.imdbID"></film-card>
+	</md-grid-tile>
+
+</md-grid-list>
+
+<button class="more"  md-button (click)="addMore()">Еще</button>
