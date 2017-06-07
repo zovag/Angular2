@@ -1,8 +1,8 @@
-<md-card class="film-card">
+<md-card *ngIf="filmItem && (filmItem | json) != '{}'" class="film-card">
 			<img md-card-image src="{{filmItem.Poster}}">
 			<md-card-content>
 				<md-card-title>{{filmItem.Title}}</md-card-title>
-				<p>Год: {{filmItem.Year}}</p>
+				<p>Year: {{filmItem.Year}}</p>
 				<p>Кассовый сбор: {{filmItem.BoxOffice}}</p>
 				<p>Актеры: {{filmItem.Actors}}</p>
 				<p>Награды: {{filmItem.Awards}}</p>

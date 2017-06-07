@@ -7,15 +7,23 @@ import {FilmsService} from '../films.service'
   styleUrls: ['./film-card.component.css']
 })
 export class FilmCardComponent implements OnInit {
-  @Input()
+  @Input() 
   filmId: string; 
-  filmItem: {} = {};
+  // filmItem: {} = {};
+  filmItem: {Poster: string,
+              Title: string,
+              Year: string,
+              BoxOffice?: string,
+              Actors: string,
+              Awards: string,
+              Plot: string};
+  
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
     if(!this.filmId) {return;}
-    this.filmsService.getFilmById(this.filmId).subscribe(data => {
-      this.filmItem = data;
+    this.filmsService.getFilmById(this.filmId).subscribe(film => {
+       this.filmItem = film;
     })
   }
 
