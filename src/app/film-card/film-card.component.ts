@@ -7,7 +7,9 @@ import {FilmsService} from '../films.service'
   styleUrls: ['./film-card.component.css']
 })
 export class FilmCardComponent implements OnInit {
-  @Input() filmId: string; 
+  @Input() 
+  filmId: string; 
+  // filmItem: {} = {};
   filmItem: {Poster: string,
               Title: string,
               Year: string,
@@ -20,10 +22,8 @@ export class FilmCardComponent implements OnInit {
 
   ngOnInit() {
     if(!this.filmId) {return;}
-    this.filmsService.getFilms(this.filmId, true).subscribe(response => {
-      if (response && response.body) {
-        this.filmItem = response.body;
-      }
+    this.filmsService.getFilmById(this.filmId).subscribe(film => {
+       this.filmItem = film;
     })
   }
 

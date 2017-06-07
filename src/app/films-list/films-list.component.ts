@@ -21,10 +21,8 @@ export class FilmsListComponent implements OnInit {
 
   private getFilms(){
     if(!this.filmName) {return;}
-    this.filmsService.getFilms(this.filmName, true).subscribe(response => {
-      if (response && response.body) {
-        this.filmList = response.body;
-      }
+    this.filmsService.getFilms(this.filmName).subscribe(list => {
+       this.filmList = list;
     })
   }
 
