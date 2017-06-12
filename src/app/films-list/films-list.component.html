@@ -4,13 +4,20 @@
   </md-input-container>
 </form>-->
 
-<films-search (getNewFilms)="getNewFilms($event)"></films-search>
-<md-grid-list cols="3" rowHeight="900px">
+<films-search (getNewFilms)="getNewFilms($event)" (onSelected)="changeView($event)"></films-search>
+
+<md-grid-list *ngIf="filmView == 'film-list'" cols="1" rowHeight="400px">
 	<div *ngIf="filmList.length === 0"><h2> Фильмы не найдены </h2></div>	
   <md-grid-tile *ngFor="let film of filmList">
 		<film-card [filmId]="film.imdbID"></film-card>
 	</md-grid-tile>
+</md-grid-list>
 
+<md-grid-list *ngIf="filmView == 'film-card'" cols="3" rowHeight="900px">
+	<div *ngIf="filmList.length === 0"><h2> Фильмы не найдены </h2></div>	
+  <md-grid-tile *ngFor="let film of filmList">
+		<film-card [filmId]="film.imdbID"></film-card>
+	</md-grid-tile>
 </md-grid-list>
 
 <button class="more"  md-button (click)="addMore()">Еще</button>

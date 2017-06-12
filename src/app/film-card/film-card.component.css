@@ -3,8 +3,17 @@
    max-width: 80%;
 }
 .film-card {
-  max-width: 300px;
+  width:100%;
+  max-width: 100%;
   margin-bottom: 50px; 
+}
+.film-card img {
+  display: inline-block;
+  width: 200px;
+}
+.mat-card-content {
+  display: inline-block;
+  width: 80%;
 }
 .example-form {
     margin-bottom: 50px;

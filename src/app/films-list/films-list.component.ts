@@ -12,10 +12,17 @@ export class FilmsListComponent implements OnInit {
 
   filmList : Object[] = []
   filmName : string; 
+  filmView : string = 'film-list';
   constructor(private filmsService: FilmsService) { }
+
   getNewFilms(filmName) {
      this.filmName = filmName;
      this.getFilms();
+  }
+
+  changeView(selectedValue) {
+    this.filmView = selectedValue;
+    console.log(selectedValue);
   }
   
   ngOnInit() {

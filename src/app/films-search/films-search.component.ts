@@ -11,9 +11,8 @@ export class FilmsSearchComponent implements OnInit {
 
   constructor() {}
 
-  @Output() 
-  getNewFilms = new EventEmitter<string>();
-  onSelected = new EventEmitter<string>();
+  @Output()  getNewFilms = new EventEmitter<string>();
+  @Output()  onSelected = new EventEmitter<string>();
 
   views = [
     {value: 'film-list', viewValue: 'List'},
@@ -23,6 +22,7 @@ export class FilmsSearchComponent implements OnInit {
   change(selection) {
     console.log(selection.value);
  		this.onSelected.emit(selection.value);
+    this.selectedValue = selection.value;
  }
 
   ngOnInit() {
