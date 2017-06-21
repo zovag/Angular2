@@ -6,12 +6,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./films-search.component.css']
 })
 export class FilmsSearchComponent implements OnInit {
-  filmName: string = 'Lord';
+  search: string;
   selectedValue: string;
 
   constructor() {}
 
-  @Output()  getNewFilms = new EventEmitter<string>();
+  @Output()  searchEv = new EventEmitter();
   @Output()  onSelected = new EventEmitter<string>();
 
   views = [
@@ -28,8 +28,8 @@ export class FilmsSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  onGetNewFilms(filmName) {
-    this.getNewFilms.emit(this.filmName); 
-  }
+  searchFilm() {
+     this.searchEv.emit(this.search);
+}
 
 }
