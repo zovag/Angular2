@@ -7,8 +7,8 @@ import {FilmsService} from '../films.service'
   styleUrls: ['./film-card.component.css']
 })
 export class FilmCardComponent implements OnInit {
-  @Input() 
-  filmId: string; 
+  @Input()   filmId: string; 
+  @Input() filmView: string;
   // filmItem: {} = {};
   filmItem: {Poster: string,
               Title: string,

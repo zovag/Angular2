@@ -9,14 +9,14 @@
 <md-grid-list *ngIf="filmView == 'film-list'" cols="1" rowHeight="400px">
 	<div *ngIf="filmList.length === 0"><h2> Фильмы не найдены </h2></div>	
   <md-grid-tile *ngFor="let film of filmList">
-		<film-card [filmId]="film.imdbID"></film-card>
+		<film-card [filmView]="filmView" [filmId]="film.imdbID"></film-card>
 	</md-grid-tile>
 </md-grid-list>
 
 <md-grid-list *ngIf="filmView == 'film-card'" cols="3" rowHeight="900px">
 	<div *ngIf="filmList.length === 0"><h2> Фильмы не найдены </h2></div>	
   <md-grid-tile *ngFor="let film of filmList">
-		<film-card [filmId]="film.imdbID"></film-card>
+		<film-card [filmView]="filmView" [filmId]="film.imdbID"></film-card>
 	</md-grid-tile>
 </md-grid-list>
 

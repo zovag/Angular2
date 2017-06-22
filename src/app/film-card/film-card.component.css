@@ -2,13 +2,13 @@
    margin: 50px auto; 
    max-width: 80%;
 }
-.film-card {
+.film-list {
   width:100%;
   max-width: 100%;
   margin-bottom: 50px; 
 }
-.film-card img {
-  display: inline-block;
+.film-list img {
+  display: block;
   width: 200px;
 }
 .mat-card-content {
