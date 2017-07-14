@@ -7,16 +7,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { MainBoardComponent } from './main-board/main-board.component';
 import { routes } from "./app.routes";
-import { FilmCardComponent } from './film-card/film-card.component';
-import { FilmCardService } from './film-card/film-card.service';
+import { LogInComponent } from './log-in/log-in.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { LastPageComponent } from './last-page/last-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainBoardComponent,
-    FilmCardComponent
+    LogInComponent,
+    PaymentPageComponent,
+    LastPageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,7 @@ import { FilmCardService } from './film-card/film-card.service';
     MaterialModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FilmCardService],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  links = [
-        { path: '/dashboard', icon: 'home', label: 'Главная'},
-        { path: '/films', icon: 'event_name', label: 'Фильмы'},
-  ];
+  // links = [
+  //       { path: '/login', icon: 'home', label: 'Залогиниться'},
+  //       { path: '/payment', icon: 'event_name', label: 'Оплата'},
+  // ];
 
 }
