@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { MainBoardComponent } from './main-board/main-board.component';
 import { routes } from "./app.routes";
 import { FilmCardComponent } from './film-card/film-card.component';
-import { FilmCardService } from './film-card/film-card.service';
+import { FilmsListComponent } from './films-list/films-list.component';
+import { FilmsService } from './films.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainBoardComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    FilmsListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { FilmCardService } from './film-card/film-card.service';
     MaterialModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FilmCardService],
+  providers: [FilmsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

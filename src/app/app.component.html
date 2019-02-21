@@ -12,7 +12,22 @@
 </md-toolbar>
 
 
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="over" class="app-sidenav">
+    <nav>
+      <a md-button
+        class="nav-link"
+        *ngFor="let link of links"
+        [routerLink]="link.path"
+        routerLinkActive="active">
+        <md-icon>{{link.icon}}</md-icon> &nbsp; {{link.label}}
+      </a>
+    </nav>
+  </md-sidenav>  
 
   <div class="app-content">
     <router-outlet></router-outlet>
   </div>
+</md-sidenav-container>
+
+<!--<app-main-board></app-main-board>-->
